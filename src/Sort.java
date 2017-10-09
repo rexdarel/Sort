@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Sort {
 
     public static void main(String[] args) throws IOException {
-        
+
         int array[] = new int[15000];
         int i = 0;
         FileInputStream fstream = new FileInputStream("random15000.txt");
@@ -22,6 +22,7 @@ public class Sort {
         BubbleSort bS = new BubbleSort();
         SelectionSort sS = new SelectionSort();
         InsertionSort iS = new InsertionSort();
+        MergeSort mS = new MergeSort();
 
         long startTimeBS = System.nanoTime();
         bS.bubbleSort(array);
@@ -38,8 +39,14 @@ public class Sort {
         long endTimeIS = System.nanoTime();
         long totalTimeIS = endTimeIS - startTimeIS;
 
+        long startTimeMS = System.nanoTime();
+        mS.sort(array, 0, array.length - 1);
+        long endTimeMS = System.nanoTime();
+        long totalTimeMS = endTimeMS - startTimeMS;
+
         System.out.println("Running time of Bubble Sort: " + totalTimeBS);
         System.out.println("Running time of Selection Sort: " + totalTimeSS);
         System.out.println("Running time of Insertion Sort: " + totalTimeIS);
+        System.out.println("Running time of Merge Sort: " + totalTimeMS);
     }
 }
