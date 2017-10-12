@@ -23,6 +23,7 @@ public class Sort {
         InsertionSort iS = new InsertionSort();
         MergeSort mS = new MergeSort();
         HeapSort hS = new HeapSort();
+        QuickSort qS = new QuickSort();
 
         long startTimeBS = System.nanoTime();
         bS.bubbleSort(array);
@@ -49,10 +50,16 @@ public class Sort {
         long endTimeHS = System.nanoTime();
         long totalTimeHS = endTimeHS - startTimeHS;
 
+        long startTimeQS = System.nanoTime();
+        qS.sort(array, 0, 500);
+        long endTimeQS = System.nanoTime();
+        long totalTimeQS = endTimeQS - startTimeQS;
+
         System.out.println("Running time of Bubble Sort: " + totalTimeBS);
         System.out.println("Running time of Selection Sort: " + totalTimeSS);
         System.out.println("Running time of Insertion Sort: " + totalTimeIS);
         System.out.println("Running time of Merge Sort: " + totalTimeMS);
         System.out.println("Running time of Heap Sort: " + totalTimeHS);
+        System.out.println("Running time of Quick Sort: " + totalTimeQS);
     }
 }
