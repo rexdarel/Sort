@@ -1,15 +1,42 @@
 import java.awt.*;
 import java.io.*;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Sort {
 
     public static void main(String[] args) throws IOException {
 
-        int array[] = new int[15000];
+        System.out.println("Choose a file. Type the number corresponding to the file name.");
+        System.out.println("1. Random Integers");
+        System.out.println("2. Reverse Integers");
+        System.out.println("3. Sorted Integers");
+        System.out.print("Input number: ");
+
+        Scanner in = new Scanner(System.in);
+        String fileName;
+        int file = in.nextInt();
+
+        if (file == 1){
+            fileName = "random15000.txt";
+            callBack(fileName);
+        } else if (file == 2){
+            fileName = "reverse15000.txt";
+            callBack(fileName);
+        } else if (file == 3){
+            fileName = "sorted15000.txt";
+            callBack(fileName);
+        }else{
+            System.out.println("Error file");
+        }
+    }
+
+    public static void callBack(String fileName) throws IOException {
+        int size = 15000;
+        int array[] = new int[size];
         int i = 0;
-        FileInputStream fstream = new FileInputStream("random15000.txt");
-        DataInputStream in = new DataInputStream(fstream);
+        FileInputStream fileInputStream = new FileInputStream(fileName);
+        DataInputStream in = new DataInputStream(fileInputStream);
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
         String data;
         while ((data = br.readLine()) != null)   {
